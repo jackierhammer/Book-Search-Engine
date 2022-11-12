@@ -28,7 +28,7 @@ const resolvers = {
             // creates token 
             const token = signToken(user);
             // returns user and token
-            return { user, token };
+            return { token, user };
         },
 
         // login, sign token, and send back
@@ -48,7 +48,7 @@ const resolvers = {
             // if user and password check out, creates token
             const token = signToken(user);
             // returns user and token
-            return { user, token };
+            return { token, user };
         },
 
         // adds a book to a user's saved books 
@@ -56,7 +56,7 @@ const resolvers = {
             // checks if user is logged in
             if (context.user) {
                 // adds the new book to the user's saved books
-                const updatedUser = await User.findByIdAndUpdate(
+                const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
                     { $push: { savedBooks: newBook } },
                     { new: true }
@@ -72,7 +72,7 @@ const resolvers = {
             // checks if user is logged in
             if (context.user) {
                 // removes the selected book from the user's saved books
-                const updatedUser = await User.findByIdAndUpdate(
+                const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
                     { $pull: { savedBooks: { bookId } } },
                     { new: true }

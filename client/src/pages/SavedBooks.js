@@ -13,9 +13,13 @@ import { useQuery, useMutation } from '@apollo/react-hooks';
 const SavedBooks = () => {
   const { loading, data } = useQuery(GET_ME);
 
-  const userData = data?.me || [];
+  const [userData, setData] = useState(loading ? null : data.me);
 
   const [removeBook, { error }] = useMutation(REMOVE_BOOK);
+
+  if (!userData) {
+    return null;
+  }
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleDeleteBook = async (bookId) => {
@@ -38,11 +42,6 @@ const SavedBooks = () => {
       console.error(err);
     };
   };
-
-  if (loading) {
-    return <div>Loading page contents</div>
-  }
-
 
   return (
     <>

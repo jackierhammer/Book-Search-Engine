@@ -8,7 +8,7 @@ import Auth from '../utils/auth';
 // imports useMutation hook
 import { useMutation } from '@apollo/react-hooks';
 
-const LoginForm = () => {
+const LoginForm = (props) => {
 
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [validated] = useState(false);
@@ -42,8 +42,7 @@ const LoginForm = () => {
     }
 
     setUserFormData({
-      // username: '',
-      // took out username field 
+      username: '',
       email: '',
       password: '',
     });

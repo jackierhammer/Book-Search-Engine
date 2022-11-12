@@ -25,7 +25,8 @@ const server = new ApolloServer({
 // since we are using an Apollo Server 2 version before 3, we don't have to use server.start() first
 server.applyMiddleware({ app });
 
-app.use(express.urlencoded({ extended: true }));
+// changed true to false 
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // if we're in production, serve client/build as static assets

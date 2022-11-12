@@ -4,7 +4,7 @@ const { gql } = require('apollo-server-express');
 // defines query and mutation types
 const typeDefs = gql`
   type User {
-    _id: ID!
+    _id: ID
     username: String
     email: String
     bookCount: Int
