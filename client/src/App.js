@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // added apollo client import
-import { ApolloClient } from 'apollo-boost';
+import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';

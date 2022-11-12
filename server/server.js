@@ -4,6 +4,9 @@ const path = require('path');
 // imports type defs and resolvers
 const { typeDefs, resolvers } = require('./schemas');
 
+// imports database connection
+const db = require('./config/connection');
+
 // imports apollo server
 const { ApolloServer } = require('apollo-server-express');
 
