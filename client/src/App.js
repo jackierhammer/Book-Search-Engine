@@ -1,7 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // added apollo client import
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { ApolloClient } from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
@@ -24,13 +25,14 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Navbar>
-          <Switch>
+        <>
+          <Navbar />
+          <Routes>
             <Route exact path='/' component={SearchBooks} />
             <Route exact path='/saved' component={SavedBooks} />
             <Route render={() => <h1 className='display-2'>Wrong Page</h1>} />
-          </Switch>
-        </Navbar>
+          </Routes>
+        </>
       </Router>
     </ApolloProvider>
   );

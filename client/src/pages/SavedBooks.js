@@ -33,7 +33,7 @@ const SavedBooks = () => {
       // upon success, remove book's id from localStorage
       removeBookId(bookId);
 
-      windom.location.reload();
+      window.location.reload();
     } catch (err) {
       console.error(err);
     };
