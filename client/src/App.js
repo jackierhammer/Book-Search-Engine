@@ -9,7 +9,7 @@ import Navbar from './components/Navbar';
 
 // here we make a new apollo client
 const client = new ApolloClient({
-  request: (operation) => {
+  request: operation => {
     // grab token from local storage
     const token = localStorage.getItem('id_token');
     operation.setContext({
@@ -28,8 +28,8 @@ function App() {
         <>
           <Navbar />
           <Routes>
-            <Route exact path='/' component={SearchBooks} />
-            <Route exact path='/saved' component={SavedBooks} />
+            <Route exact path='/' element={<SearchBooks/>} />
+            <Route exact path='/saved' element={<SavedBooks/>} />
             <Route render={() => <h1 className='display-2'>Wrong Page</h1>} />
           </Routes>
         </>
