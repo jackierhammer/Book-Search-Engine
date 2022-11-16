@@ -54,6 +54,8 @@ const resolvers = {
         // adds a book to a user's saved books 
         saveBook: async (parent, { newBook }, context) => {
             // checks if user is logged in
+
+           console.log(newBook)
             if (context.user) {
                 // adds the new book to the user's saved books
                 const updatedUser = await User.findOneAndUpdate(
